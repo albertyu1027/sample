@@ -28,8 +28,9 @@ listTasks= () => {
 	var textnode = document.createTextNode(this.state.tasks[i]);
     node.appendChild(textnode);
 	document.getElementById("space").appendChild(node);
+	document.getElementById("firstBtn").style.display = 'none';
 	}
-    
+
 }
 
 openTask = () => {
@@ -52,7 +53,7 @@ render() {
 				<button id="firstBtn" onClick={ this.listTasks }>Show Project Tasks</button>
 			</div>
 			<div className="col-md-4">
-			<h2>{this.state.participant[0]}</h2>
+			<h2>Welcome {this.state.participant[0]}</h2>
 			</div>
 		</div>
 		<div>
@@ -60,9 +61,6 @@ render() {
 		 </ol>
 		</div>
       </Container>
-
-
-
     )
   }
 }
