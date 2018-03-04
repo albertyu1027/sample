@@ -2,6 +2,25 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require("mongoose");
+const mocha = require("mocha");
+
+//connect to MongodDB
+mongoose.connect("mongodb://localhost/sampleBC");
+
+// Set up promises with mongoose
+mongoose.Promise = global.Promise;
+
+mongoose.connection.once('open', function(){
+	console.log("Successfully Connected to MongoDB")
+}).on("error", function(error){
+	console.log("Did not connect to MongoDB".error)
+})
+
+// //testing with Mocha
+// describe('some demo tests', function() {
+// 	//create tests
+// })
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

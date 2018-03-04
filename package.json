@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "mocha": "^5.0.1",
+    "mongoose": "^5.0.8",
     "react-router-dom": "^4.2.2"
   }
 }

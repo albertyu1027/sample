@@ -30,7 +30,6 @@ listTasks= () => {
 	document.getElementById("space").appendChild(node);
 	document.getElementById("firstBtn").style.display = 'none';
 	}
-
 }
 
 openTask = () => {
