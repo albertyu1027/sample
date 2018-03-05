@@ -7,7 +7,7 @@ const ParticipantSchema = new Schema({
 	companyname: String,
 	city: String,
 	state: String,
-	datejoined: Number,
+	datejoined: Date,
 	projectvalue: Number,
 	local: {
 		username: { type: String, unique: false, required: false },
