@@ -1,11 +1,11 @@
-const assert = require("assert")
 const mocha = require("mocha");
+const assert = require("assert")
 const Participants = require("./models/participants")
 
 // //testing with Mocha
 describe('Saving Document', function() {
 	// create tests
-it('Saves a record to the database', function(done) {
+it('Saved, FoundOne, FoundbyID, Deleted record to the database', function(done) {
 
 		var newParticipant = new Participants({
 		companyname: "ABC",
@@ -22,6 +22,20 @@ it('Saves a record to the database', function(done) {
 		newParticipant.save().then[function(){
 			assert(newParticipant.isNew === false);
 		}];
+
+		Participants.findOne({ companyname: "ABC"}).then(function(result) {
+			assert(result.companyname === "ABC")
+		})
+
+		Participants.findOne({ _id: newParticipant._id}).then(function(result) {
+			assert(result._id.toString() === newParticipant._id.toString())
+		})
+
+		Participants.findOneAndRemove({companyname: "ABC"}).then(function(result) {
+			Participants.findOne({ companyname: "ABC"}).then(function(result){
+				assert(result === null)
+			})
+		})
 
 		done();
 

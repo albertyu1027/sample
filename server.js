@@ -3,18 +3,22 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
-
-//connect to MongodDB
-mongoose.connect("mongodb://localhost/sampleBC");
+const bodyParser = require("body-parser");
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 
+//connect to MongodDB
+mongoose.connect("mongodb://localhost/sampleBC");
+
 mongoose.connection.once('open', function(){
-	console.log("Successfully Connected to MongoDB")
+	console.log("Successfully Connected to MongoDB");
 }).on("error", function(error){
 	console.log("Did not connect to MongoDB".error)
-})
+});
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
