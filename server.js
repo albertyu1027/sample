@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;

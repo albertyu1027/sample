@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Container } from "../components/Grid";
 import { Link } from "react-router-dom";
+import API from "../utils/API";
+import axios from "axios";
+
 
 class Tasks extends Component {
 	constructor(props) {
@@ -9,9 +12,6 @@ class Tasks extends Component {
       participant: [],
       tasks: []
     };
-
-    console.log(this.state)
-
 }
 
 componentDidMount(){
@@ -21,9 +21,21 @@ componentDidMount(){
         });
 }
 
-testing= () => {
-	console.log("hi");
-	return;
+testing= (event) => {
+	// axios.post('/api', {
+	
+	// })
+
+	console.log(this.props)
+	console.log(this.state)
+	
+	API.getParticipants({
+
+	}).then(res => {
+		console.log(res)
+	})
+
+	
 }
 
 listTasks= () => {
