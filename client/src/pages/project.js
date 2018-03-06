@@ -11,6 +11,7 @@ class Tasks extends Component {
     };
 
     console.log(this.state)
+
 }
 
 componentDidMount(){
@@ -18,6 +19,11 @@ componentDidMount(){
           participant: ["Company 1", "Company 2"],
           tasks: ["Task A", "Task B", "Task C", "Task D", "Task E"]
         });
+}
+
+testing= () => {
+	console.log("hi");
+	return;
 }
 
 listTasks= () => {
@@ -40,7 +46,6 @@ openTask = () => {
 	var textnode = document.createTextNode("Task A has been completed");
     node.appendChild(textnode);
 	document.getElementById("space").appendChild(node);
-
 }
 
 
@@ -49,6 +54,7 @@ render() {
     	<Container>
     	<div className="row">
 	        <div className="col-md-8">
+	        <button id= "test" onClick={ this.testing }> TEST </button>
 				<button id="firstBtn" onClick={ this.listTasks }>Show Project Tasks</button>
 			</div>
 			<div className="col-md-4">
