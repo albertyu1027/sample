@@ -1,4 +1,3 @@
 module.exports = {
-  Participants: require("./participants"),
-  
+  Tasks: require("./tasks"),
 };

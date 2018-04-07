@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import axios from "axios";
 
-
 class Tasks extends Component {
 	constructor(props) {
     super(props);
+    console.log(props)
     this.state = {
       participant: [],
       tasks: []
@@ -23,16 +23,19 @@ componentDidMount(){
 
 testing= (event) => {
 	// axios.post('/api', {
-	
-	// })
+
+	// }
 
 	console.log(this.props)
 	console.log(this.state)
-	
-	API.getParticipants({
+
+
+
+	API.getTasks({
 
 	}).then(res => {
 		console.log(res)
+		console.log(res.headers.date)
 	})
 
 	
