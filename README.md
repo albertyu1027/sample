@@ -1,3 +1,7 @@
+
+Sample Blockchain Application:
+
+=======
 # sample
 
 Blockchain Sample
@@ -27,8 +31,3 @@ Model:
     completed: { type: Boolean, required: true }
 });
   
-
-
-
-
-

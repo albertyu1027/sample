@@ -4,12 +4,13 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
 
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/blockchain";
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
-
-//connect to MongodDB
-mongoose.connect("mongodb://localhost/sampleBC");
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI);
 
 mongoose.connection.once('open', function(){
 	console.log("Successfully Connected to MongoDB");
